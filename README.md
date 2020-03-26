@@ -1,6 +1,7 @@
 # Azure Key Vault hello world
 
 ## Update the config
+
 Update the `application.properties` file with the required values
 
 - **azure.keyvault.uri:** your-keyvault-endpoint
@@ -27,4 +28,18 @@ Visit the endpoint to show the secret
 ```
 $ curl localhost:8080
 This is the secret lastname polo
+```
+
+## Build docker image
+
+Build the docker image. The name of the image is in the `build.gradle` file. This will both build and push the image.
+
+```bash
+./gradlew jib
+```
+
+You can always pass a different image name like:
+
+```bash
+./gradlew jib --image=quay.io/giantswarm/azure-vault-demo
 ```
