@@ -3,9 +3,9 @@
 ## Update the config
 Update the `application.properties` file with the required values
 
-*azure.keyvault.uri:* your-keyvault-endpoint
-*azure.keyvault.client-id:* your-client-id
-*azure.keyvault.client-key:* your-client-secret
+- **azure.keyvault.uri:** your-keyvault-endpoint
+- **azure.keyvault.client-id:** your-client-id
+- **azure.keyvault.client-key:** your-client-secret
 
 For example:
 
