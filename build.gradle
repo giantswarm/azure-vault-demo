@@ -39,4 +39,6 @@ test {
 	useJUnitPlatform()
 }
 
+tasks.build.dependsOn tasks.jib
+
 jib.to.image = 'quay.io/giantswarm/azure-vault-demo'
