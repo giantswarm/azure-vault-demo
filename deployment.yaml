@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vault-demo
+  namespace: unstable
+  labels:
+    app: azure-vault-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vault-demo
+  template:
+    metadata:
+      labels:
+        app: azure-vault-demo
+    spec:
+      containers:
+        - image: quay.io/giantswarm/azure-vault-demo
+          imagePullPolicy: Always
+          name: azure-vault-demo
+          ports:
+          - containerPort: 8080
+          env:
+          - name: AZURE_KEYVAULT_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: azure-vault-demo
+                key: azure.keyvault.client-id
+          - name: AZURE_KEYVAULT_CLIENT_KEY
+            valueFrom:
+              secretKeyRef:
+                name: azure-vault-demo
+                key: azure.keyvault.client-key
+          - name: AZURE_KEYVAULT_URI
+            valueFrom:
+              secretKeyRef:
+                name: azure-vault-demo
+                key: azure.keyvault.uri
