@@ -15,10 +15,12 @@ repositories {
 
 ext {
 	set('azureVersion', "2.2.0")
+	set('springCloudVersion', "Hoxton.SR3")
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'com.microsoft.azure:azure-keyvault-secrets-spring-boot-starter'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -28,6 +30,7 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom "com.microsoft.azure:azure-spring-boot-bom:${azureVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
 
