@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Value("${marco}")
+    @Value("${marco:not secret}")
     private String marcoLastName;
 
     @RequestMapping("/")
